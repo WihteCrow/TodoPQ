@@ -14,13 +14,13 @@ import {
 export default class Button extends Component {
     constructor(props) {
         super(props);
-        this.class = props.class;
         this.text = props.text;
+        this.onPressBtn = props.onPress;
     }
     render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity style={[styles.button, this.class]}>
+                <TouchableOpacity onPress={this.onPressBtn} style={[styles.button]}>
                     <Text style={styles.text}>{this.text}</Text>
                 </TouchableOpacity>
             </View>
@@ -30,10 +30,8 @@ export default class Button extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
     },
     button: {
         height: 40,
@@ -42,7 +40,7 @@ const styles = StyleSheet.create({
         backgroundColor:"red",
         justifyContent:"center"
     },
-    buttonText: {
+    text: {
         textAlign: "center",
         color: "#FFF"
     },
