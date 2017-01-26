@@ -33,8 +33,6 @@ const styles = StyleSheet.create({
 
 export default class Login extends React.Component {
     render(){
-        const title = this.props.title || 'No Title';
-        const data = this.props.data || 'No Data';
         return (
             <View style={[styles.view, this.props.style]}>
                 <View style={styles.center}>

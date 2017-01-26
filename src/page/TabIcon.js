@@ -17,9 +17,7 @@ const propTypes = {
 };
 
 const TabIcon = (props) => (
-    <Text
-        style={{ color: props.selected ? 'red' : 'black' }}
-    >
+    <Text style={{ color: props.selected ? 'blue' : 'black' }} >
         {props.title}
     </Text>
 );
