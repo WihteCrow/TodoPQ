@@ -8,7 +8,7 @@ import {connect} from 'react-redux'
 import {View, StyleSheet, Image} from 'react-native'
 import {Actions} from 'react-native-router-flux'
 
-import {List, ListItem, SearchBar} from 'react-native-elements'
+import {List, ListItem, SearchBar, SocialIcon} from 'react-native-elements'
 import ActionButton from 'react-native-circular-action-menu'
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -16,10 +16,14 @@ import {CATEGORYCONFIG, CATEGORIES} from '../config/CategoryConfig'
 import {addCategory} from '../module/action/CategoryAction'
 
 import {SwipeList} from '../component/List'
+import TodoDefaultCategory from '../component/TodoDefaultCategory'
 
 
 const styles = StyleSheet.create({
-    view: {},
+    view: {
+        flex: 1,
+        marginTop: 20,
+    },
     actionButtonIcon: {
         fontSize: 20,
         height: 22,
@@ -31,6 +35,35 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         borderBottomWidth: 0
+    },
+
+
+
+
+    iconGroup: {
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        justifyContent: 'center',
+        paddingTop: 10,
+        paddingBottom: 10,
+    },
+
+    iconItem: {
+        flex: 1,
+        alignItems: 'center',
+
+    },
+    iconItemRound: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height:30,
+        width:30,
+        backgroundColor: 'red',
+        borderRadius: 15,
+    },
+    iconI: {
+        color: '#fff',
+        fontSize: 20
     }
 });
 
@@ -59,25 +92,13 @@ class ListCategory extends Component {
         return (
             <View style={[styles.view]}>
                 {/*默认类目*/}
-                <List containerStyle={styles.listContainer}>
-                    {
-                        CATEGORIES.map((item, index) => (
-                            <ListItem
-                                roundAvatar
-                                key={index}
-                                title={item.name}
-                                badge={getCount(item.count)}
-                                leftIcon={{name: item.leftIconName, type: item.leftIconType}}
-                            />
-                        ))
-                    }
-                </List>
+                <TodoDefaultCategory />
 
                 {/*自定义类目*/}
                 <SwipeList data={categories} />
 
                 {/* 创建按钮 */}
-                <ActionButton buttonColor="rgba(231,76,60,1)">
+                <ActionButton style={styles.actionButton} buttonColor="rgba(231,76,60,1)">
                     <ActionButton.Item buttonColor='#9b59b6' title="新建文件夹"
                                        onPress={() => dispatch(addCategory('1231', CATEGORYCONFIG.FOLDER))}>
                         <Icon name="ios-folder-outline" style={styles.actionButtonIcon}/>
@@ -86,7 +107,7 @@ class ListCategory extends Component {
                         <Icon name="ios-list" style={styles.actionButtonIcon}/>
                     </ActionButton.Item>
                     <ActionButton.Item buttonColor='#1abc9c' title="新建共享组" onPress={() => dispatch(addCategory('1231', CATEGORYCONFIG.GROUP))}>
-                        <Icon name="group" style={styles.actionButtonIcon}/>
+                        <Icon name="ios-list" style={styles.actionButtonIcon}/>
                     </ActionButton.Item>
                 </ActionButton>
             </View>

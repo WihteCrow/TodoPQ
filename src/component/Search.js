@@ -13,7 +13,12 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
         backgroundColor: 'transparent',
         borderTopWidth: 0,
-        borderBottomWidth: 0,
+        borderRightWidth: 0,
+        borderLeftWidth: 0,
+        borderBottomWidth: 1,
+        paddingBottom: 5,
+        paddingTop: 5,
+        borderColor: '#ebebeb'
     },
     searchInput: {
         margin: 0,
@@ -33,8 +38,9 @@ const styles = StyleSheet.create({
 
 export default class Search extends Component {
     render() {
+        const {searchStyle} = this.props
         return (
-            <SearchBar containerStyle={styles.searchBar} icon={{style: styles.searchIcon}} inputStyle={styles.searchInput} round lightTheme placeholder='搜索'/>
+            <SearchBar containerStyle={[styles.searchBar, searchStyle]} icon={{style: styles.searchIcon}} inputStyle={styles.searchInput} round lightTheme placeholder='搜索'/>
         );
     }
 }

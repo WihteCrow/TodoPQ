@@ -12,6 +12,11 @@ import Register from './page/Register'
 import Category from './page/Category'
 import TabIcon from './page/TabIcon'
 import TabView from './page/TabView'
+import Summary from './pageUI/Summary'
+import Setting from './pageUI/Setting'
+import Message from './pageUI/Message'
+import Notice from './pageUI/Notice'
+import AddModal from './pageUI/AddModal'
 
 const styles = StyleSheet.create({
     container: {
@@ -64,17 +69,16 @@ export default class App extends Component {
                     </Scene>
                     <Scene key="tabBar" initial>
                         <Scene key="main" tabs tabBarStyle={styles.tabBarStyle} tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle} >
-                            <Scene key="tab1" initial title="首页" icon={TabIcon} navigationBarStyle={{ backgroundColor: 'red' }} titleStyle={{ color: 'white' }}>
-                                <Scene key="tab1_1" hideNavBar component={TabView} title="内容汇总" />
-                                <Scene key="tab1_2" component={TabView} title="Tab #1_2" titleStyle={{ color: 'black' }} />
+                            <Scene key="home" title="首页" icon={TabIcon} navigationBarStyle={{ backgroundColor: 'red' }} titleStyle={{ color: 'white' }}>
+                                <Scene key="summary" hideNavBar="true" component={Summary} title="内容汇总" />
                             </Scene>
-                            <Scene key="tab2" title="TODO" icon={TabIcon}>
-                                <Scene key="TodoCategory" component={Category} title="TODO"/>
+                            <Scene key="tab2" initial title="TODO" icon={TabIcon}>
+                                <Scene key="TodoCategory" hideNavBar component={Category} title="TODO"/>
                                 <Scene key="tab2_2" component={TabView} title="Tab #2_2" hideBackImage onBack={() => alert('Left button!')} backTitle="Left" duration={1} panHandlers={null} />
                             </Scene>
-                            <Scene key="tab3" component={TabView} title="Tab #3" hideTabBar icon={TabIcon} />
-                            <Scene key="tab4" component={TabView} title="Tab #4" hideNavBar icon={TabIcon} />
-                            <Scene key="tab5" component={TabView} title="Tab #5" hideTabBar icon={TabIcon} />
+                            <Scene key="add" component={AddModal} title="加" hideNavBar icon={TabIcon} />
+                            <Scene key="notice" component={Notice} title="通知" hideNavBar icon={TabIcon} />
+                            <Scene key="setting" component={Setting} title="更多" icon={TabIcon} />
                         </Scene>
                     </Scene>
                 </Scene>

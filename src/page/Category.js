@@ -5,7 +5,7 @@
 import React, {Component} from 'react'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
-import ListCategory from '../component/ListCategory'
+import ListCategory from '../pageUI/ListCategory'
 import category from '../module/reducer/CategoryReducer';
 
 let store = createStore(category);

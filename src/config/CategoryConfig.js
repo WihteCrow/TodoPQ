@@ -22,26 +22,26 @@ export let CATEGORYCONFIG = {
 export let CATEGORIES = [
     {
         name: '收件箱',
-        leftIconName: 'ios-mail-outline',
-        leftIconType: 'ionicon',
+        iconName: 'md-mail',
+        iconType: 'ionicon',
         count: 0
     },
     {
         name: '已加星',
-        leftIconName: 'star',
-        leftIconType: 'evilicon',
+        iconName: 'md-star-outline',
+        iconType: 'evilicon',
         count: 0
     },
     {
         name: '今日',
-        leftIconName: 'star',
-        leftIconType: 'evilicon',
+        iconName: 'md-star-outline',
+        iconType: 'evilicon',
         count: 0
     },
     {
         name: '周',
-        leftIconName: 'calendar',
-        leftIconType: 'evilicon',
+        iconName: 'md-star-outline',
+        iconType: 'evilicon',
         count: 0
     }
 ];
